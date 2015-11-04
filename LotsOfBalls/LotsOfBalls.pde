@@ -1,5 +1,5 @@
 //declare variables
-int count=1000;
+int count = 1000;
 float []x = new float [count];
 float []y = new float [count];
 float []velX = new float [count];
@@ -12,24 +12,23 @@ void setup() {
   size(800, 600);
 
   //declare local integer
-  int i=0;
-  while (i<count) {
+  //count=100;
+  for (int i = 0; i < count;i++) {
     //initialize variables
-    x[i] = width/2;
+    x[i] = random(width);
     y[i] = random(height);
     diam[i] = 20;
     velX[i] = random(-2, 2);
-    velY[i] = random(-2, 2);
-    i++;
+    velY[i] = random(-2, 2);    
   }
 }
 
 void draw() {
   //draw background to cover previous frame
   background(0);
-  int i=0;
+  
   //draw ball
-  while (i<count) {
+  for (int i=0; i<count; i++) {
     ellipse(x[i], y[i], diam[i], diam[i]);
     fill(random(100),random(100), random(100));
     noStroke();
@@ -50,6 +49,6 @@ void draw() {
     } else if (y[i] - diam[i]/2 <= 0) {
       velY[i] = abs(velY[i]);
     }
-    i++;
+    
   }
 }
